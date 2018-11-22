@@ -14,6 +14,7 @@ class CampaignNew extends Component {
 
   onSubmit = async event => {
     event.preventDefault();
+
     this.setState({ loading: true, errorMessage: "" });
 
     try {
@@ -44,13 +45,12 @@ class CampaignNew extends Component {
               label="wei"
               labelPosition="right"
               value={this.state.minimumContribution}
-              onChange={
-                event =>
-                  this.setState({ minimumContribution: event.target.value })
-                //setting event handler
+              onChange={event =>
+                this.setState({ minimumContribution: event.target.value })
               }
             />
           </Form.Field>
+
           <Message error header="Oops!" content={this.state.errorMessage} />
           <Button loading={this.state.loading} primary>
             Create!
